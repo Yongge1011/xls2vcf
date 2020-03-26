@@ -22,15 +22,13 @@ class WeChat(object):
         itchat.dump_login_status()  # 显示所有的群聊信息，默认是返回保存到通讯录中的群聊
         myroom = itchat.search_chatrooms(name=qun_name)  # 群聊名称
         gsq = itchat.update_chatroom(myroom[0]['UserName'], detailedMember=True)
-        with open('科技金融.txt', 'w', encoding='utf-8')as f:
-            f.write("交流群成员如下\n")
-            for i in gsq['MemberList']:
-                # f.write('微信名：' + i['NickName'] + '|群昵称：' + i['DisplayName'] + '\n')
-                # print('微信名：' + i['NickName'] + '|群昵称：' + i['DisplayName'] + '\n')
-                # f.close()
+        for i in gsq['MemberList']:
+            # f.write('微信名：' + i['NickName'] + '|群昵称：' + i['DisplayName'] + '\n')
+            # print('微信名：' + i['NickName'] + '|群昵称：' + i['DisplayName'] + '\n')
+            # f.close()
 
-                Wxm_list.append(i['NickName'])
-                Ncm_list.append(i['DisplayName'])
+            Wxm_list.append(i['NickName'])
+            Ncm_list.append(i['DisplayName'])
 
         dic_wxq = {'微信名': Wxm_list, '群昵称': Ncm_list}
 
