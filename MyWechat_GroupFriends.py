@@ -10,6 +10,7 @@ itchat.auto_login(hotReload=True)  # 不需要重复扫码登录
 qun_name = '12.26京东云（天津）项目路演天津'
 Wxm_list = []
 Ncm_list = []
+city_list = []
 
 
 class WeChat(object):
@@ -29,8 +30,9 @@ class WeChat(object):
 
             Wxm_list.append(i['NickName'])
             Ncm_list.append(i['DisplayName'])
+            city_list.append(i['City'])
 
-        dic_wxq = {'微信名': Wxm_list, '群昵称': Ncm_list}
+        dic_wxq = {'微信名': Wxm_list, '群昵称': Ncm_list,'城市':city_list}
 
         df = DataFrame(dic_wxq)
         df.to_excel(qun_name +'.xlsx')
